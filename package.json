@@ -1,0 +1,23 @@
+{
+  "name": "web-perancangan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.2.1",
+    "chartjs-plugin-annotation": "^3.0.1",
+    "firebase": "^9.19.1",
+    "jquery": "^3.6.4"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.1",
+    "webpack-cli": "^5.0.1"
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" style = "height:100vh; width:100vw; margin: 0;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype-perancangan</title>
+    <style>
+    .m-0 {
+        margin: 0;
+    }
+
+    th { 
+        background-color: rgb(183, 210, 235);
+        padding: 0.5em;
+    }
+
+    td {
+        padding : 0.5em;
+    }
+
+    .chart-container {
+        position:relative;
+        margin:auto;
+        height: 80vh;
+        width: 80vh;
+    }
+    </style>
+</head>
+<body style="display: flex; flex-direction:column;  min-height:100vh; margin: .5em;">
+<h3 class="m-0" style="padding-bottom: 1em;">prototype-perancangan</h3>
+<div style="display: flex; flex-direction: row; padding-top: .5em; justify-content: space-around;">
+    <div> 
+        <h4 class="m-0" style="padding-bottom: 0.5em">Tabel Data</h4>
+        <div style = "height: 80vh; overflow-y: scroll;">
+            <table id="data-readings" style="text-align: center; border: 2px;">
+                <tr><th>Timestamp</th><th>Akselerasi x</th><th>Akselerasi y</th><th>Akselerasi z</th></tr>
+            </table> 
+        </div>
+        <br><br>
+        <button type="button" onclick="tableToCSV()">
+            Export CSV
+        </button>
+    </div>
+    <div>
+        <h4 class="m-0" style="padding-bottom: 0.5em">Grafik Sway Area</h4>
+        <div class="chart-container">
+            <canvas id="plot"></canvas>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function tableToCSV() {
+
+        // Variable to store the final csv data
+        var csv_data = [];
+
+        // Get each row data
+        var rows = document.getElementsByTagName('tr');
+        for (var i = 0; i < rows.length; i++) {
+
+            // Get each column data
+            var cols = rows[i].querySelectorAll('td,th');
+
+            // Stores each csv row data
+            var csvrow = [];
+            for (var j = 0; j < cols.length; j++) {
+
+                // Get the text data of each cell
+                // of a row and push it to csvrow
+                csvrow.push(cols[j].innerHTML);
+            }
+
+            // Combine each column value with comma
+            csv_data.push(csvrow.join(","));
+        }
+
+        // Combine each row data with new line character
+        csv_data = csv_data.join('\n');
+
+        // Call this function to download csv file 
+        downloadCSVFile(csv_data);
+
+    }
+
+    function downloadCSVFile(csv_data) {
+
+        // Create CSV file object and feed
+        // our csv_data into it
+        CSVFile = new Blob([csv_data], {
+            type: "text/csv"
+        });
+
+        // Create to temporary link to initiate
+        // download process
+        var temp_link = document.createElement('a');
+
+        // Download csv file
+        temp_link.download = "GfG.csv";
+        var url = window.URL.createObjectURL(CSVFile);
+        temp_link.href = url;
+
+        // This link should not be displayed
+        temp_link.style.display = "none";
+        document.body.appendChild(temp_link);
+
+        // Automatically click the link to
+        // trigger download
+        temp_link.click();
+        document.body.removeChild(temp_link);
+    }
+</script>
+</body>
+</html>
