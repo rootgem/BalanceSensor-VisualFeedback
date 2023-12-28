@@ -5,13 +5,13 @@ import Chart from 'chart.js/auto'
 import annotationPlugin from 'chartjs-plugin-annotation'
 
 let firebaseConfig = {
-    apiKey: "AIzaSyCzmaqxsTf3ZYwE-Sw9rEum5i2gdEhkDY4",
-    authDomain: "perancangan-80525.firebaseapp.com",
-    databaseURL: "https://perancangan-80525-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "perancangan-80525",
-    storageBucket: "perancangan-80525.appspot.com",
-    messagingSenderId: "1035341961277",
-    appId: "1:1035341961277:web:134ea7ffa971fe14ff3254"
+    apiKey: /*CHANGE ACCORDING TO YOUR CONFIG*/,
+    authDomain: /*CHANGE ACCORDING TO YOUR CONFIG*/,
+    databaseURL: /*CHANGE ACCORDING TO YOUR CONFIG*/,
+    projectId: /*CHANGE ACCORDING TO YOUR CONFIG*/,
+    storageBucket: /*CHANGE ACCORDING TO YOUR CONFIG*/,
+    messagingSenderId:/*CHANGE ACCORDING TO YOUR CONFIG*/,
+    appId: /*CHANGE ACCORDING TO YOUR CONFIG*/
   }
 
 const app = initializeApp(firebaseConfig)
