@@ -42,8 +42,8 @@ function epochToDateTime(epochTime){
   return dateTime
 }
 
-const email = "18319021@std.stei.itb.ac.id"
-const password = "test-perancangan"
+const email = /*CHANGE ACCORDING TO YOUR CONFIG*/
+const password = /*CHANGE ACCORDING TO YOUR CONFIG*/
 
 
 async function user(auth, email, password){
